@@ -14,7 +14,7 @@ public class Vehicle
     public string Brand { get; set; }
     public string Model { get; set; }
 
-    // Referencia a la clase Propietario
+    // Referencia a la clase Propietario    
     public required int OwnerId { get; set; }
     public int Year { get; set; }
     public string Color { get; set; }
