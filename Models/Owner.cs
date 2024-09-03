@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ApiExample.Models;
 
+// TODOS LOS CORCHETES SON DATA ANNOTATIONS
 public class Owner
 {
     [Key]
@@ -33,5 +35,8 @@ public class Owner
     public required string Email { get; set; }
 
 
-    // [NotMapped] Esta data anotation sirve para evitar que la base de datos cree la propiedad. 
+    // [NotMapped] Esta data anotation sirve para evitar que la base de datos cree la propiedad.
+
+    [JsonIgnore] // Esto es para que no se genere un bucle a la hora de traer datos de la colección.
+    public virtual ICollection<Vehicle> Vehicles { get; set; } // Colección de vehicles.
 }

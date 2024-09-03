@@ -11,16 +11,16 @@ public class Vehicle
 {
     [Key]
     public int Id { get; set; }
-    public string Brand { get; set; }
-    public string Model { get; set; }
-    public int Year { get; set; }
-    public string Color { get; set; }
-    public string TypeOfVehicle { get; set; }
+    public required string Brand { get; set; }
+    public required string Model { get; set; }
+    public required int Year { get; set; }
+    public required string Color { get; set; }
+    public required string TypeOfVehicle { get; set; }
 
     // Referencia a la clase Propietario
     public required int OwnerId { get; set; }
 
     // Referencia de la forein Key de la clase Propietario. Haciendo relación de uno a muchos. (Enlaces foraneos)
-    [ForeignKey("OwnerId")]
+    // [ForeignKey("OwnerId")]
     public Owner Owner { get; set; }
 }
