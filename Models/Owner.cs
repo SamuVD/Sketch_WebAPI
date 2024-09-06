@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace ApiExample.Models;
 
 // TODOS LOS CORCHETES SON DATA ANNOTATIONS
+[Table("owners")]
 public class Owner
 {
     [Key]

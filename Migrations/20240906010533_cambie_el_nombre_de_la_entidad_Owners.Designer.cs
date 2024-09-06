@@ -3,6 +3,7 @@ using ApiExample.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiExample.Migrations
 {
     [DbContext(typeof(ConnectionDbContext))]
-    partial class ConnectionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240906010533_cambie_el_nombre_de_la_entidad_Owners")]
+    partial class cambie_el_nombre_de_la_entidad_Owners
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
