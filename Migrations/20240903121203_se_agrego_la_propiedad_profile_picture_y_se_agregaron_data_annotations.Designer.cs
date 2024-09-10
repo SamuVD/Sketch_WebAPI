@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiExample.Migrations
 {
-    [DbContext(typeof(ConnectionDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240903121203_se_agrego_la_propiedad_profile_picture_y_se_agregaron_data_annotations")]
     partial class se_agrego_la_propiedad_profile_picture_y_se_agregaron_data_annotations
     {

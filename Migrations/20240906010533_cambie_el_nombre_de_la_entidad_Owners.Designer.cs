@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiExample.Migrations
 {
-    [DbContext(typeof(ConnectionDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240906010533_cambie_el_nombre_de_la_entidad_Owners")]
     partial class cambie_el_nombre_de_la_entidad_Owners
     {

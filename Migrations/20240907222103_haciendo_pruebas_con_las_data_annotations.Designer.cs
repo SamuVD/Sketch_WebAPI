@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiExample.Migrations
 {
-    [DbContext(typeof(ConnectionDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240907222103_haciendo_pruebas_con_las_data_annotations")]
     partial class haciendo_pruebas_con_las_data_annotations
     {

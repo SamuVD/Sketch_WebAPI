@@ -13,12 +13,12 @@ namespace ApiExample.Controllers.V1.Owners;
 public class OwnersController : ControllerBase
 {
     // Esta propiedad se va a encargar de darme la llave para entrar a la base de datos
-    private readonly ConnectionDbContext KeyToOpenDB;
+    private readonly ApplicationDbContext Context;
 
     // Builder. Este constructor se va a encargar de hacerme la conexión con la base de datos, con la ayuda de la llave para entrar.
-    public OwnersController(ConnectionDbContext connectionWithDB)
+    public OwnersController(ApplicationDbContext context)
     {
-        KeyToOpenDB = connectionWithDB;
+        Context = context;
     }
 
     // Este método se va a encargar de traer todos los propietarios que existen en la base de datos
@@ -31,27 +31,27 @@ public class OwnersController : ControllerBase
     // }
 
     // Este método se va a encargar de traer un propietario por su nombre
-    [HttpGet("GetOwnerByName")]
-    public async Task<IActionResult> Get()
-    {
-        var getOneOwnerForTheName = await KeyToOpenDB.Owners.FirstOrDefaultAsync(item => item.Name == "alejo");
+    // [HttpGet("GetOwnerByName")]
+    // public async Task<IActionResult> Get()
+    // {
+    //     var getOneOwnerForTheName = await KeyToOpenDB.Owners.FirstOrDefaultAsync(item => item.Name == "alejo");
 
-        if (getOneOwnerForTheName == null)
-        {
-            return NotFound("No hay ningún propietario");
-        }
-        else
-        {
-            return Ok(getOneOwnerForTheName);
-        }
-    }
+    //     if (getOneOwnerForTheName == null)
+    //     {
+    //         return NotFound("No hay ningún propietario");
+    //     }
+    //     else
+    //     {
+    //         return Ok(getOneOwnerForTheName);
+    //     }
+    // }
 
-    // Este método se va a encargar de traer un propietario por su Id
-    [HttpGet("GetOwnerById/{id}")]
-    public async Task<IActionResult> GetOwnerById(int id)
-    {
-        var oneOwnerById = await KeyToOpenDB.Owners.FindAsync(id);
+    // // Este método se va a encargar de traer un propietario por su Id
+    // [HttpGet("GetOwnerById/{id}")]
+    // public async Task<IActionResult> GetOwnerById(int id)
+    // {
+    //     var oneOwnerById = await KeyToOpenDB.Owners.FindAsync(id);
 
-        return Ok(oneOwnerById);
-    }
+    //     return Ok(oneOwnerById);
+    // }
 }

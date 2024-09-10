@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiExample.Migrations
 {
-    [DbContext(typeof(ConnectionDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240903131631_se_agregaron_validaciones_a_las_propiedades_de_la_clase_vehicle")]
     partial class se_agregaron_validaciones_a_las_propiedades_de_la_clase_vehicle
     {
