@@ -10,7 +10,7 @@ using ApiExample.Models;
 namespace ApiExample.Controllers.V1.Owners;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/owners")]
 public class OwnersCreateController : ControllerBase
 {
     // Esta propiedad se va a encargar de darme la llave para entrar a la base de datos
@@ -23,8 +23,8 @@ public class OwnersCreateController : ControllerBase
     }
 
     // Método Post para crear un nuevo propietario.
-    [HttpPost("NewOwner")]
-    public async Task<IActionResult> Post([FromBody]Owner owner)
+    [HttpPost]
+    public async Task<IActionResult> Post([FromBody] Owner owner)
     {
         if (!ModelState.IsValid)
         {

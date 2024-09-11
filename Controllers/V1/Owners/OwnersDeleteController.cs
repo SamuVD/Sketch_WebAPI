@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiExample.Controllers.V1.Owners;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/owners")]
 public class OwnersDeleteController : ControllerBase
 {
     // Esta propiedad se va a encargar de darme la llave para entrar a la base de datos
@@ -22,14 +22,14 @@ public class OwnersDeleteController : ControllerBase
     }
 
     // Método Delete para eliminar a un propietario.
-    [HttpDelete("DeleteOwnerById/{id}")]
-    public async Task<IActionResult> Delete(int id)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete([FromRoute] int id)
     {
         var ownerDeletedByYourId = await Context.Owners.FindAsync(id);
         
         if (ownerDeletedByYourId == null)
         {
-            return NotFound("No se encontró a ningún propietario con ese ID");
+            return NotFound("No owner found with that ID");
         }
         Context.Owners.Remove(ownerDeletedByYourId);
         await Context.SaveChangesAsync();

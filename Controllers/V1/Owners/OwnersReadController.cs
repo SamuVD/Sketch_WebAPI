@@ -10,7 +10,7 @@ using ApiExample.Models;
 namespace ApiExample.Controllers.V1.Owners;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/v1/owners")]
 public class OwnersReadController : ControllerBase
 {
     // Esta propiedad se va a encargar de darme la llave para entrar a la base de datos
@@ -23,20 +23,20 @@ public class OwnersReadController : ControllerBase
     }
 
     // Método Get para traer a un propietario por el ID
-    [HttpGet("ShowOwnerById/{id}")]
-    public async Task<IActionResult> GetById(int id)
+    [HttpGet("GetById/{id}")]
+    public async Task<IActionResult> GetById([FromRoute] int id)
     {
         var showOwnerById = await Context.Owners.FindAsync(id);
 
         if (showOwnerById == null)
         {
-            return NotFound("El ID no se encuentra registrado.");
+            return NotFound("The ID is not registered.");
         }
         return Ok(showOwnerById);
     }
 
     // Método Get para traer a todos los propietarios existentes en la entidad de la base de datos.
-    [HttpGet("AllOwners")]
+    [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         var getAllOwners = await Context.Owners.Select(item => item).ToListAsync();

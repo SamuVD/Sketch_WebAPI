@@ -49,7 +49,7 @@ public class Owner
     [Required]
     [EmailAddress(ErrorMessage = "Verifica que hayas escrito el formato correcto para un correo electrónico")]
     [MinLength(5, ErrorMessage = "El correo electrónico no puede tener menos de {1} caracteres.")]
-    [MaxLength(25, ErrorMessage = "El correo electrónico no puede tener más de {1} digitos.")]
+    [MaxLength(255, ErrorMessage = "El correo electrónico no puede tener más de {1} digitos.")]
     public string Email { get; set; }
 
 
